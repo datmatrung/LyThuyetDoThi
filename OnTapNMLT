@@ -105,3 +105,12 @@ ngược lại xuất ra thông báo “Gia tri của x khac 100”.
         Console.WriteLine($"Thang {thang}/{nam} co {songay} ngay");
         Console.ReadLine();
     }
+7. Xếp loại các học sinh trong lớp. Nhập vào họ tên, điểm toán, lý, hóa của các học sinh.
+Tính điểm trung bình 3 môn và phân loại như sau:
+• suất xắc: đtb >=9.0
+• giỏi: 9.0 > đtb >= 8.0
+• khá: 8.0 > đtb >= 6.5
+• trung bình: 6.5 > đtb >= 5.0
+• yếu: 5.0 > đtb >= 3.0
+• kém: 3.5 > đtb
+8. Hãy tính tổng s = 1 + 2 + 3 + ... + n
