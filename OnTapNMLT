@@ -1,4 +1,4 @@
-1. Viết chương trình nhập vào năm sinh, xuất tuổi ra màn hình:
+1. Viết chương trình nhập vào năm sinh, xuất tuổi ra màn hình.
 using System;
 class Program
 {
@@ -12,10 +12,7 @@ class Program
     }
 }
 
-2. Nhập điểm thi và hệ số 3 môn toán, lý, hóa của một sinh viên. Tính điểm trung bình của sinh viên đó.
-using System;
-class Program
-{
+2. Nhập điểm thi và hệ số 3 môn Toán, Lý, Hóa của một sinh viên. Tính điểm trung bình của sinh viên đó.
     static void Main()
     {
         Console.Write("Nhap diem toan: ");
@@ -36,4 +33,55 @@ class Program
         Console.Write($"Diem trung binh cua ban la {dtb}");
         Console.ReadLine();
     }
-}
+
+3. Nhập bán kính của đường tròn. Tính chu vi và diện tích của hình tròn đó.
+    static void Main()
+    {
+        Console.Write("Nhap ban kinh: ");
+        double bankinh = double.Parse(Console.ReadLine());
+        double chuvi = bankinh * 2 * Math.PI;
+        double dientich = Math.Pow(bankinh, 2) * Math.PI;
+        Console.WriteLine($"Chu vi hinh tron la {chuvi}");
+        Console.WriteLine($"Dien tich hinh tron la {dientich}");
+        Console.ReadLine();
+    }
+    
+4. Viết chương trình nhập vào một số x, nếu x = 100 thì xuất ra thông báo “Gia tri cua x la 100”,
+ngược lại xuất ra thông báo “Gia tri của x khac 100”.
+    static void Main()
+    {
+        Console.Write("Nhap x = ");
+        int x = int.Parse(Console.ReadLine());
+        if (x == 100)
+            Console.WriteLine("Gia tri cua x la 100");
+        else
+            Console.WriteLine("Gia tri cua x khac 100");
+        Console.ReadLine();
+    }
+5. Nhập vào 2 số nguyên. Tính min và max của hai số đó.
+    static void Main()
+    {
+        Console.Write("Nhap so thu nhat = ");
+        int x = int.Parse(Console.ReadLine());
+        Console.Write("Nhap so thu hai = ");
+        int y = int.Parse(Console.ReadLine());
+        int max, min;
+        if (x > y)
+        {
+            max = x;
+            min = y;
+        }    
+        else if (x < y)
+        {
+            max = y;
+            min = x;
+        }
+        else
+        {
+            max = x;
+            min = x;
+        }    
+        Console.WriteLine($"Max(x, y) = {max}");
+        Console.WriteLine($"Min(x, y) = {min}");
+        Console.ReadLine();
+    }
