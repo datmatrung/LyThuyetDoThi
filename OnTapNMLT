@@ -1,0 +1,39 @@
+1. Viết chương trình nhập vào năm sinh, xuất tuổi ra màn hình:
+using System;
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Nhap nam sinh cua ban: ");
+        int year = int.Parse(Console.ReadLine());
+        int age = 2021 - year;
+        Console.Write($"Ban duoc {age} tuoi");
+        Console.ReadLine();
+    }
+}
+
+2. Nhập điểm thi và hệ số 3 môn toán, lý, hóa của một sinh viên. Tính điểm trung bình của sinh viên đó.
+using System;
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Nhap diem toan: ");
+        double toan = double.Parse(Console.ReadLine());
+        Console.Write("Nhap he so mon toan: ");
+        double hstoan = double.Parse(Console.ReadLine());
+        Console.Write("Nhap diem ly: ");
+        double ly = double.Parse(Console.ReadLine());
+        Console.Write("Nhap he so mon ly: ");
+        double hsly = double.Parse(Console.ReadLine());
+        Console.Write("Nhap diem hoa: ");
+        double hoa = double.Parse(Console.ReadLine());
+        Console.Write("Nhap he so mon hoa: ");
+        double hshoa = double.Parse(Console.ReadLine());
+        double tongdiem = toan * hstoan + ly * hsly + hoa * hshoa;
+        double hstong = hstoan + hsly + hshoa;
+        double dtb = tongdiem / hstong;
+        Console.Write($"Diem trung binh cua ban la {dtb}");
+        Console.ReadLine();
+    }
+}
