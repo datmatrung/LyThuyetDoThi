@@ -85,3 +85,23 @@ ngược lại xuất ra thông báo “Gia tri của x khac 100”.
         Console.WriteLine($"Min(x, y) = {min}");
         Console.ReadLine();
     }
+6. Nhập vào tháng và năm, cho biết tháng đó có bao nhiêu ngày.
+    static void Main()
+    {
+        int songay;
+        Console.Write("Nhap thang: ");
+        int thang = int.Parse(Console.ReadLine());
+        Console.Write("Nhap nam: ");
+        int nam = int.Parse(Console.ReadLine());
+        if (thang == 1 || thang == 3 || thang == 5 || thang == 7 || thang == 8 || thang == 10 || thang == 12)
+            songay = 31;
+        else if (thang == 2)
+        {
+            if ((nam % 100 != 0 && nam % 4 == 0) || (nam % 400 == 0))
+                songay = 29;
+            else songay = 28;
+        }
+        else songay = 30;
+        Console.WriteLine($"Thang {thang}/{nam} co {songay} ngay");
+        Console.ReadLine();
+    }
