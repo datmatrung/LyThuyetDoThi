@@ -114,3 +114,72 @@ Tính điểm trung bình 3 môn và phân loại như sau:
 • yếu: 5.0 > đtb >= 3.0
 • kém: 3.5 > đtb
 8. Hãy tính tổng s = 1 + 2 + 3 + ... + n
+    static void Main()
+    {
+        Console.Write("Nhap vao n: ");
+        int n = int.Parse(Console.ReadLine());
+        int i = 1;
+        long s = 0;
+        while (i <= n)
+        {
+            s += i;
+            i++;
+        }
+        Console.WriteLine($"Ket qua la: {s}");
+        Console.ReadLine();
+    }
+ 9. Tính tổng các số chia hết cho 4 và không chia hết cho 5 nhỏ hơn n.
+    static void Main()
+    {
+        Console.Write("Nhap vao n: ");
+        int n = int.Parse(Console.ReadLine());
+        long s = 0;
+        for (int i = 1; i <= n; i++)
+        {
+            if ((i % 4 == 0) && (i % 5 != 0))
+                s += i;
+        }
+        Console.WriteLine($"Ket qua la: {s}");
+        Console.ReadLine();
+    }
+ 10. Tính S = 1^2 + 2^2 + 3^2 + ... + n^2
+    static void Main()
+    {
+        Console.Write("Nhap vao n: ");
+        int n = int.Parse(Console.ReadLine());
+        long s = 0;
+        for (int i = 1; i <= n; i++)
+        {
+            s += i*i;
+        }
+        Console.WriteLine($"Ket qua la: {s}");
+        Console.ReadLine();
+    }
+11. Tìm các ước số của 2 số nguyên dương.
+12. Kiểm tra 1 số có phải là số nguyên tố hay không.
+    static void Main()
+    {
+        Console.Write("Nhap mot so: ");
+        int N = int.Parse(Console.ReadLine());
+        bool laSoNguyenTo = true;
+        if (N < 2)
+            laSoNguyenTo = false;
+        else
+        {
+            int i = 2;
+            while (i <= Math.Sqrt(N))
+            {
+                if (N % i == 0)
+                {
+                    laSoNguyenTo = false;
+                    break;
+                }
+                i++;
+            }
+        }
+        if (laSoNguyenTo)
+            Console.Write($"{N} la so nguyen to");
+        else
+            Console.Write($"{N} khong phai so nguyen to");
+        Console.ReadLine();
+    }
