@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace LTDT
@@ -7,35 +7,35 @@ namespace LTDT
     {
         public void DocMaTranKe(string filename)
         {
-            MaTranKe am = new MaTranKe(filename);
-            am.Show();
+            MaTranKe g = new MaTranKe(filename);
+            g.Show();
 
-            bool isSymmetric = true;
-            for (int i = 0; i < am.n && isSymmetric; ++i)
+            bool LaDoiXung = true;
+            for (int i = 0; i < g.n && LaDoiXung; ++i)
             {
                 int j;
-                for (j = i + 1; j < am.n && am.a[i, j] == am.a[j, i]; ++j) ;
-                if (j < am.n)
-                    isSymmetric = false;
+                for (j = i + 1; j < g.n && g.a[i, j] == g.a[j, i]; ++j) ;
+                if (j < g.n)
+                    LaDoiXung = false;
             }
-            if (isSymmetric == false)
+            if (LaDoiXung == false)
                 Console.WriteLine("Ma tran khong doi xung");
             else
                 Console.WriteLine("Ma tran doi xung");
         }
         public void DocDanhSachKe(string filename)
         {
-            DanhSachKe al = new DanhSachKe(filename);
-            al.Show();
-            bool isUndirected = true;
-            for (int i = 0; i < al.n && isUndirected; ++i)
+            DanhSachKe g = new DanhSachKe(filename);
+            g.Show();
+            bool LaVoHuong = true;
+            for (int i = 0; i < g.n && LaVoHuong; ++i)
             {
                 int j;
-                for (j = 0; j < al.a[i].Count && al.a[al.a[i][j]].Contains(i); ++j) ;
-                if (j < al.a[i].Count)
-                    isUndirected = false;
+                for (j = 0; j < g.a[i].Count && g.a[g.a[i][j]].Contains(i); ++j) ;
+                if (j < g.a[i].Count)
+                    LaVoHuong = false;
             }
-            if (isUndirected == false)
+            if (LaVoHuong == false)
                 Console.WriteLine("Danh sach ke bieu dien do thi mot chieu");
             else
                 Console.WriteLine("Danh sach ke bieu dien do thi hai chieu");
@@ -75,7 +75,7 @@ namespace LTDT
             for (int i = 0; i < am.n; ++i)
             {
                 for (int j = 0; j < al.a[i].Count; ++j)
-                    am.a[i,al.a[i][j]] = 1;
+                    am.a[i, al.a[i][j]] = 1;
             }
             // write to file
             string content = am.n.ToString();
@@ -83,7 +83,7 @@ namespace LTDT
             {
                 string s = Environment.NewLine;
                 for (int j = 0; j < am.n; ++j)
-                    s = s + am.a[i,j].ToString() + " ";
+                    s = s + am.a[i, j].ToString() + " ";
                 content = content + s;
             }
             System.IO.File.WriteAllText(nameout, content);
