@@ -25,6 +25,39 @@ namespace LTDT
             }
             return laDoiXung;
         }
+
+        private void XuLyDoThiVoHuong()
+        {
+            g.Show();
+            Console.WriteLine("Do thi vo huong");
+            Console.WriteLine($"So dinh cua do thi: {g.n}");
+            int[] BacDinh = new int[g.n];
+            DemBacDinh(ref BacDinh);
+            int SoCanh = DemSoCanh(BacDinh, true);
+            Console.WriteLine($"So canh cua do thi: {SoCanh}");
+            int SoCanhBoi = DemCanhBoi(true);
+            Console.WriteLine($"So cap dinh xuat hien canh boi: {SoCanhBoi}");
+            int SoCanhKhuyen = DemCanhKhuyen();
+            Console.WriteLine($"So canh khuyen: {SoCanhKhuyen}");
+            int SoDinhTreo = DemDinhTreo(BacDinh);
+            Console.WriteLine($"So dinh treo: {SoDinhTreo}");
+            int SoDinhCoLap = DemDinhCoLap(BacDinh);
+            Console.WriteLine($"So dinh co lap: {SoDinhCoLap}");
+            Console.WriteLine("Bac cua tung dinh: ");
+            for (int i = 0; i < g.n; ++i)
+                Console.Write($"{i}({BacDinh[i]}) ");
+            Console.WriteLine();
+            if (SoCanhKhuyen > 0)
+                Console.WriteLine("Gia do thi");
+            else
+            {
+                if (SoCanhBoi > 0)
+                    Console.WriteLine("Da do thi");
+                else
+                    Console.WriteLine("Don do thi");
+            }
+        }
+
         private void DemBacDinh(ref int[] BacDinh)
         {
             for (int i = 0; i < g.n; ++i)
@@ -108,37 +141,7 @@ namespace LTDT
                 BacRa[i] = DemBacRa;
             }
         }
-        private void XuLyDoThiVoHuong()
-        {
-            g.Show();
-            Console.WriteLine("Do thi vo huong");
-            Console.WriteLine($"So dinh cua do thi: {g.n}");
-            int[] BacDinh = new int[g.n];
-            DemBacDinh(ref BacDinh);
-            int SoCanh = DemSoCanh(BacDinh, true);
-            Console.WriteLine($"So canh cua do thi: {SoCanh}");
-            int SoCanhBoi = DemCanhBoi(true);
-            Console.WriteLine($"So cap dinh xuat hien canh boi: {SoCanhBoi}");
-            int SoCanhKhuyen = DemCanhKhuyen();
-            Console.WriteLine($"So canh khuyen: {SoCanhKhuyen}");
-            int SoDinhTreo = DemDinhTreo(BacDinh);
-            Console.WriteLine($"So dinh treo: {SoDinhTreo}");
-            int SoDinhCoLap = DemDinhCoLap(BacDinh);
-            Console.WriteLine($"So dinh co lap: {SoDinhCoLap}");
-            Console.WriteLine("Bac cua tung dinh: ");
-            for (int i = 0; i < g.n; ++i)
-                Console.Write($"{i}({BacDinh[i]}) ");
-            Console.WriteLine();
-            if (SoCanhKhuyen > 0)
-                Console.WriteLine("Gia do thi");
-            else
-            {
-                if (SoCanhBoi > 0)
-                    Console.WriteLine("Da do thi");
-                else
-                    Console.WriteLine("Don do thi");
-            }
-        }
+
         private void XuLyDoThiCoHuong()
         {
             g.Show();
