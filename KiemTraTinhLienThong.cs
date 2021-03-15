@@ -1,4 +1,5 @@
 //https://www.geeksforgeeks.org/check-if-a-graph-is-strongly-unilaterally-or-weakly-connected/
+
 using System;
 using System.Collections.Generic;
 
@@ -9,7 +10,7 @@ namespace LTDT
         private int V;
         private List<int>[] a;
         private MaTranKe g = new MaTranKe();
-        public Graph(){}
+        public Graph() { }
         private Graph(int v)
         {
             V = v;
@@ -31,7 +32,31 @@ namespace LTDT
                     XuatDFS(n, tham);
             }
         }
-
+        private int[,] TaoMaTranDuongDi()
+        {
+            int n = g.n;
+            Graph f = new Graph(n);
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    if (g.a[i, j] == 1)
+                        f.ThemCanh(i, j);
+                }
+            }
+            int[,] A = new int[n, n];
+            for (int i = 0; i < n; i++)
+            {
+                bool[] tham = new bool[n];
+                f.XuatDFS(i, tham);
+                for (int j = 0; j < n; j++)
+                {
+                    if (tham[j] == true)
+                        A[i, j] = 1;
+                }
+            }
+            return A;
+        }
         private bool LienThongManh()
         {
             int[,] A = TaoMaTranDuongDi();
@@ -117,31 +142,6 @@ namespace LTDT
             }
             return LienThongYeu;
         }
-        private int[,] TaoMaTranDuongDi()
-        {
-            int n = g.n;
-            Graph f = new Graph(n);
-            for (int i = 0; i < n; i++)
-            {
-                for (int j = 0; j < n; j++)
-                {
-                    if (g.a[i, j] == 1)
-                        f.ThemCanh(i, j);
-                }
-            }
-            int[,] A = new int[n, n];
-            for (int i = 0; i < n; i++)
-            {
-                bool[] tham = new bool[n];
-                f.XuatDFS(i, tham);
-                for (int j = 0; j < n; j++)
-                {
-                    if (tham[j] == true)
-                        A[i, j] = 1;
-                }
-            }
-            return A;
-        }
         public void Xuat(string filename)
         {
             g.Read(filename);
@@ -165,14 +165,21 @@ namespace LTDT
             {
                 Console.Write("Chon do thi 1->4: ");
                 int DoThi = int.Parse(Console.ReadLine());
-                if (DoThi == 1)
-                    bt.Xuat("MaTranKe1.txt");
-                if (DoThi == 2)
-                    bt.Xuat("MaTranKe2.txt");
-                if (DoThi == 3)
-                    bt.Xuat("MaTranKe3.txt");
-                if (DoThi == 4)
-                    bt.Xuat("MaTranKe4.txt");
+                switch(DoThi)
+                {
+                    case 1: 
+                        bt.Xuat("MaTranKe1.txt");
+                        break;
+                    case 2:
+                        bt.Xuat("MaTranKe2.txt");
+                        break;
+                    case 3:
+                        bt.Xuat("MaTranKe3.txt");
+                        break;
+                    case 4:
+                        bt.Xuat("MaTranKe4.txt");
+                        break;
+                }
                 Console.Write("Ban co muon tiep tuc Y/N: ");
                 tiep = Console.ReadLine();
             } while (tiep == "Y" || tiep == "y");
