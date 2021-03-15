@@ -155,29 +155,7 @@ namespace LTDT
         static void Main()
         {
             Graph bt = new Graph();
-            string tiep = "";
-            do
-            {
-                Console.Write("Chon do thi 1->4: ");
-                int DoThi = int.Parse(Console.ReadLine());
-                switch(DoThi)
-                {
-                    case 1: 
-                        bt.Xuat("MaTranKe1.txt");
-                        break;
-                    case 2:
-                        bt.Xuat("MaTranKe2.txt");
-                        break;
-                    case 3:
-                        bt.Xuat("MaTranKe3.txt");
-                        break;
-                    case 4:
-                        bt.Xuat("MaTranKe4.txt");
-                        break;
-                }
-                Console.Write("Ban co muon tiep tuc Y/N: ");
-                tiep = Console.ReadLine();
-            } while (tiep == "Y" || tiep == "y");
+            bt.Xuat("input.txt");
             Console.ReadLine();
         }
     }
