@@ -22,14 +22,14 @@ namespace LTDT
         {
             a[v].Add(w);
         }
-        private void XuatDFS(int v, bool[] tham)
+        private void DFS(int v, bool[] tham)
         {
             tham[v] = true;
-            List<int> vList = a[v];
-            foreach (var n in vList)
+            List<int> ds = a[v];
+            foreach (var n in ds)
             {
                 if (!tham[n])
-                    XuatDFS(n, tham);
+                    DFS(n, tham);
             }
         }
         private int[,] TaoMaTranDuongDi()
@@ -48,7 +48,7 @@ namespace LTDT
             for (int i = 0; i < n; i++)
             {
                 bool[] tham = new bool[n];
-                f.XuatDFS(i, tham);
+                f.DFS(i, tham);
                 for (int j = 0; j < n; j++)
                 {
                     if (tham[j] == true)
@@ -91,7 +91,7 @@ namespace LTDT
             }
             return LienThongTungPhan;
         }
-        private int[,] TaoMaTranVoHuong()
+        private bool LienThongYeu()
         {
             int n = g.n;
             Graph f = new Graph(n);
@@ -116,19 +116,14 @@ namespace LTDT
             for (int i = 0; i < n; i++)
             {
                 bool[] tham = new bool[n];
-                k.XuatDFS(i, tham);
+                k.DFS(i, tham);
                 for (int j = 0; j < n; j++)
                 {
                     if (tham[j] == true)
                         A[i, j] = 1;
                 }
             }
-            return A;
-        }
-        private bool LienThongYeu()
-        {
             bool LienThongYeu = true;
-            int[,] A = TaoMaTranVoHuong();
             for (int i = 0; i < g.n; i++)
             {
                 for (int j = 0; j < g.n; j++)
