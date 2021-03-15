@@ -1,4 +1,5 @@
-﻿using System;
+//https://www.geeksforgeeks.org/check-if-a-graph-is-strongly-unilaterally-or-weakly-connected/
+using System;
 using System.Collections.Generic;
 
 namespace LTDT
@@ -7,20 +8,20 @@ namespace LTDT
     {
         private int V;
         private List<int>[] a;
-        MaTranKe g = new MaTranKe();
+        private MaTranKe g = new MaTranKe();
         public Graph(){}
-        public Graph(int v)
+        private Graph(int v)
         {
             V = v;
             a = new List<int>[v];
             for (int i = 0; i < v; ++i)
                 a[i] = new List<int>();
         }
-        public void ThemCanh(int v, int w)
+        private void ThemCanh(int v, int w)
         {
             a[v].Add(w);
         }
-        public void XuatDFS(int v, bool[] tham)
+        private void XuatDFS(int v, bool[] tham)
         {
             tham[v] = true;
             List<int> vList = a[v];
