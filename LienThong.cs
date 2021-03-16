@@ -1,26 +1,24 @@
-//https://www.geeksforgeeks.org/check-if-a-graph-is-strongly-unilaterally-or-weakly-connected/
-
 using System;
 using System.Collections.Generic;
 
 namespace LTDT
 {
-    class Graph
+    class LienThong
     {
         private int V;
         private List<int>[] a;
         private MaTranKe g = new MaTranKe();
-        public Graph() { }
-        private Graph(int v)
+        public LienThong() { }
+        private LienThong(int v)
         {
             V = v;
             a = new List<int>[v];
             for (int i = 0; i < v; ++i)
                 a[i] = new List<int>();
         }
-        private void ThemCanh(int v, int w)
+        private void ThemCanh(int v, int u)
         {
-            a[v].Add(w);
+            a[v].Add(u);
         }
         private void DFS(int v, bool[] tham)
         {
@@ -35,7 +33,7 @@ namespace LTDT
         private int[,] TaoMaTranDuongDi()
         {
             int n = g.n;
-            Graph f = new Graph(n);
+            LienThong f = new LienThong(n);
             for (int i = 0; i < n; i++)
             {
                 for (int j = 0; j < n; j++)
@@ -94,7 +92,7 @@ namespace LTDT
         private bool LienThongYeu()
         {
             int n = g.n;
-            Graph f = new Graph(n);
+            LienThong f = new LienThong(n);
             for (int i = 0; i < n; i++)
             {
                 for (int j = 0; j < n; j++)
@@ -103,7 +101,7 @@ namespace LTDT
                         f.ThemCanh(i, j);
                 }
             }
-            Graph k = new Graph(n);
+            LienThong k = new LienThong(n);
             for (int i = 0; i < n; i++)
             {
                 for (int j = 0; j < f.a[i].Count; j++)
@@ -148,15 +146,6 @@ namespace LTDT
                 Console.WriteLine("Do thi lien thong yeu");
             else
                 Console.WriteLine("Do thi khong lien thong");
-        }
-    }
-    class Program
-    {
-        static void Main()
-        {
-            Graph bt = new Graph();
-            bt.Xuat("input.txt");
-            Console.ReadLine();
         }
     }
 }
