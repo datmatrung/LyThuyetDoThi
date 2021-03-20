@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace LTDT
@@ -6,7 +6,7 @@ namespace LTDT
     class TPLT
     {
         MaTranKe g = new MaTranKe();
-        Stack<int> stack = new Stack<int>();
+        Stack<int> S = new Stack<int>();
         bool[] tham;
         private void NhapDFS(int dinh)
         {
@@ -16,17 +16,7 @@ namespace LTDT
                 if (g.a[dinh, i] == 1 && !tham[i])
                     NhapDFS(i);
             }
-            stack.Push(dinh);
-        }
-        private void XuatDFS(int dinh)
-        {
-            tham[dinh] = true;
-            Console.Write(dinh + " ");
-            for (int v = 0; v < g.n; v++)
-            {
-                if (g.a[dinh, v] == 2 && !tham[v])
-                    XuatDFS(v);
-            }
+            S.Push(dinh);
         }
         private void DaoNguoc()
         {
@@ -42,6 +32,16 @@ namespace LTDT
                 }
             }
         }
+        private void XuatDFS(int dinh)
+        {
+            tham[dinh] = true;
+            Console.Write(dinh + " ");
+            for (int v = 0; v < g.n; v++)
+            {
+                if (g.a[dinh, v] == 2 && !tham[v])
+                    XuatDFS(v);
+            }
+        }
         public void Xuat(string filename)
         {
             g.Read(filename);
@@ -54,9 +54,9 @@ namespace LTDT
             DaoNguoc();
             tham = new bool[g.n];
             int i = 1;
-            while (stack.Count > 0)
+            while (S.Count > 0)
             {
-                int dinh = stack.Pop();
+                int dinh = S.Pop();
                 if (!tham[dinh])
                 {
                     Console.Write($"Thanh phan lien thong manh {i}: ");
